@@ -1,0 +1,51 @@
+{
+  "name": "entry-system-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build",
+    "watch": "parallel tsc-watch nodemon",
+    "tsc-watch": "tsc --watch",
+    "nodemon": "sleep 5 && nodemon build",
+    "knex": "knex --knexfile src/knexfile.ts",
+    "knex-migrate": "knex --knexfile src/knexfile.ts migrate:latest",
+    "knex-rollback": "knex --knexfile src/knexfile.ts migrate:rollback"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1",
+    "npm-parallel": "^2.0.1",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.7.0",
+    "typescript": "^2.7.2"
+  },
+  "dependencies": {
+    "@types/bcrypt": "^1.0.0",
+    "@types/body-parser": "^1.16.5",
+    "@types/cors": "^2.8.3",
+    "@types/express": "^4.0.37",
+    "@types/fs-extra-promise": "^1.0.2",
+    "@types/knex": "^0.0.62",
+    "@types/lodash": "^4.14.105",
+    "@types/pg": "^7.1.4",
+    "@types/react": "^16.0.40",
+    "@types/react-dom": "^16.0.4",
+    "@types/uuid": "^3.4.2",
+    "aws-sdk": "^2.138.0",
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "fast-sha256": "^1.1.0",
+    "fs-extra-promise": "^1.0.1",
+    "knex": "^0.13.0",
+    "lodash": "^4.17.5",
+    "moment": "^2.19.0",
+    "oy-vey": "~0.10.0",
+    "pg": "^7.3.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "uuid": "^3.1.0"
+  }
+}

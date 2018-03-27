@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "sourceMap": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    // "emitDecoratorMetadata": true,
+    // "experimentalDecorators": true,
+    "jsx": "react",
+    "lib": [
+      "es2017",
+      "es2017.object",
+      "dom"
+    ],
+    "rootDir": "src",
+    "outDir": "build"
+  },
+  "filesGlob": [
+    "src/**/*.ts"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compileOnSave": false
+}

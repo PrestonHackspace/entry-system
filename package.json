@@ -1,0 +1,8 @@
+{
+  "name": "entry-system",
+  "version": "1.0.0",
+  "description": "Sign in / sign out logging system for use with smart card reader",
+  "main": "index.js",
+  "author": "Chris Dell <cjdell@gmail.com>",
+  "license": "MIT"
+}
