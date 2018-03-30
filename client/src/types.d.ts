@@ -1,3 +1,3 @@
 declare const responsiveVoice: {
-  speak(test: string): void,
+  speak(text: string): void,
 };

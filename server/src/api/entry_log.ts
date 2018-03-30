@@ -6,7 +6,7 @@ import { EntryLogApi } from '../common/api';
 import { NewEntryLogRepository } from '../model/repositories/entry_log';
 import { RoleEnum } from '../common/model/user';
 import { NewMemberRepository } from '../model/repositories/member';
-import { EntryList } from '../common/model/entry_log';
+import { EntryList, SignInResponse, SignOutResponse } from '../common/model/entry_log';
 import { NewMemberHelper } from './helpers/member_helper';
 
 export function NewEntryLogApi({ trx, authenticatedUser, helper }: EntrySystemApiContext): Api & EntryLogApi {
@@ -66,6 +66,7 @@ export function NewEntryLogApi({ trx, authenticatedUser, helper }: EntrySystemAp
     if (!memberRow) {
       return {
         type: 'MemberNotFound',
+        code,
       };
     }
 
@@ -82,7 +83,7 @@ export function NewEntryLogApi({ trx, authenticatedUser, helper }: EntrySystemAp
       type,
       member: memberHelper.toMember(memberRow),
       entryList: await getDayView(),
-    };
+    } as (SignInResponse | SignOutResponse);
   };
 
   const signInWithNewMember: EntryLogApi['signInWithNewMember'] = async (code, name) => {

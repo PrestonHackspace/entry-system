@@ -51,28 +51,24 @@ export const EntryPage = withStyles(Styles)(
 
         const result = await toggle(code);
 
-        this.handleResponse(result, code);
+        this.handleResponse(result);
       });
     }
 
-    handleResponse(result: SignInOutResponse, code?: string) {
-      if (result.type === 'MemberNotFound' && code) {
-        this.openNameDialog(code);
+    handleResponse(result: SignInOutResponse) {
+      if (result.type === 'MemberNotFound') {
+        return this.openNameDialog(result.code);
       }
 
-      if (result.member) {
-        if (result.type === 'SignIn') {
-          responsiveVoice.speak(`Welcome to the People's Production Lab ${result.member.name}`);
-        }
-
-        if (result.type === 'SignOut') {
-          responsiveVoice.speak(`Good bye ${result.member.name}`);
-        }
+      if (result.type === 'SignIn') {
+        responsiveVoice.speak(`Welcome to the People's Production Lab ${result.member.name}`);
       }
 
-      if (result.entryList) {
-        this.updateEntryView(result.entryList);
+      if (result.type === 'SignOut') {
+        responsiveVoice.speak(`Good bye ${result.member.name}`);
       }
+
+      this.updateEntryView(result.entryList);
     }
 
     openNameDialog(code: string) {
