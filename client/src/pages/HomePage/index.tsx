@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { Paper } from 'material-ui';
 import { CommonProps } from '../../types';
 import { AdminLayout } from '../../components/AdminLayout';
 import { Pane } from '../../components/Pane';
-import { GridLayout } from '../../components/GridLayout';
 
 interface HomePageProps extends CommonProps { }
 
@@ -28,8 +26,6 @@ export function HomePage(props: HomePageProps) {
       <p>You are now logged in</p>
     );
   }
-
-  // responsiveVoice.speak('Hello World');
 
   return (
     <AdminLayout title='Home Page' toolbarButtons={[]} app={app}>

@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import { UUID, strEnum, RegEx, Validator, deepFreeze } from '../lib';
+import { UUID, strEnum, RegEx, Validator } from '../lib';
 import { DateTimeUtcString } from '../lib/date';
 
 export const AnonId = '00000000-0000-0000-0000-000000000000';
@@ -73,18 +73,6 @@ export interface UserLink {
   readonly name: string;
   linked: boolean;
 }
-
-export const UserDummy: User & { newPassword: string } = deepFreeze({
-  id: '',
-  role: 'Anon' as 'Anon',
-  name: '',
-  email: '',
-  newPassword: '',
-  flags: {},
-
-  created_at: '',
-  updated_at: '',
-});
 
 export const UserValidator: Validator<PartialUser> = {
   email: [(val?: string) => val && !RegEx.Email.test(val) ? 'Please enter a valid email address.' : undefined],

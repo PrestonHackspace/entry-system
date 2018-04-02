@@ -298,27 +298,27 @@ export function hashArrayBuffer(arrayBuffer: ArrayBuffer) {
   return convertBase64ToUrlSafeBase64(hash.digestAsBase64());
 }
 
-function getObjectHash(obj: any): string {
-  return hashString(JSON.stringify(getNormalisedObject(obj)));
-}
+// function getObjectHash(obj: any): string {
+//   return hashString(JSON.stringify(getNormalisedObject(obj)));
+// }
 
-function getNormalisedObject(obj: any): Object {
-  if (!obj || typeof obj !== 'object' || obj instanceof Date) return obj;
+// function getNormalisedObject(obj: any): Object {
+//   if (!obj || typeof obj !== 'object' || obj instanceof Date) return obj;
 
-  if (Array.isArray(obj)) return obj.map(getNormalisedObject);
+//   if (Array.isArray(obj)) return obj.map(getNormalisedObject);
 
-  let sorted: any = {};
+//   let sorted: any = {};
 
-  Object.keys(obj).sort().forEach(function (key) {
-    sorted[key] = getNormalisedObject(obj[key]);
-  });
+//   Object.keys(obj).sort().forEach(function (key) {
+//     sorted[key] = getNormalisedObject(obj[key]);
+//   });
 
-  return sorted;
-}
+//   return sorted;
+// }
 
-function isEqual(a: any, b: any): boolean {
-  return getObjectHash(a) === getObjectHash(b);
-}
+// function isEqual(a: any, b: any): boolean {
+//   return getObjectHash(a) === getObjectHash(b);
+// }
 
 // // Unlike _.union() this does deep object comparison
 // function union(a: Array<Object>, b: Array<Object>): Array<Object> {
@@ -352,6 +352,6 @@ function isEqual(a: any, b: any): boolean {
 //   return values(differencedSet);
 // }
 
-function values(set: any) {
-  return Object.keys(set).map((k) => set[k]);
-}
+// function values(set: any) {
+//   return Object.keys(set).map((k) => set[k]);
+// }

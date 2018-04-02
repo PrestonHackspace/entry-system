@@ -2,7 +2,7 @@ import { CSSProperties } from 'react';
 import { Theme } from 'material-ui';
 import returnof from 'returnof';
 
-export const Styles = (theme: Theme) => ({
+export const Styles = (_theme: Theme) => ({
   app: {
     background: '#ccc',
     height: '100vh',

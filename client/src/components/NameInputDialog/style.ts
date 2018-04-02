@@ -1,7 +1,7 @@
 import { Theme, StyleRulesCallback } from 'material-ui';
 import { StyleRules } from 'material-ui/styles';
 
-export const Styles: Style = (theme: Theme) => ({
+export const Styles: Style = (_theme: Theme) => ({
   dialog: {
     position: 'fixed',
     left: '20vw',

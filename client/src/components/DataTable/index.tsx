@@ -291,7 +291,7 @@ export const DataTable = withStyles(styles)(
                       count={totalCount}
                       rowsPerPage={pageSize}
                       page={currentPage}
-                      onChangePage={(e, page) => this.changePage(page)}
+                      onChangePage={(_e, page) => this.changePage(page)}
                       onChangeRowsPerPage={(e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => this.changeRowsPerPage(parseInt(e.currentTarget.value, 10))}
                     />
                   </TableRow>

@@ -3,7 +3,7 @@ import { StyleRules } from 'material-ui/styles';
 
 export const RowCount = 20;
 
-export const Styles: Style = (theme: Theme) => ({
+export const Styles: Style = (_theme: Theme) => ({
   page: {
     background: '#77f',
     height: '100vh',

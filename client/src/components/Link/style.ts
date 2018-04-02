@@ -1,7 +1,7 @@
 import { Theme } from 'material-ui';
 import returnof from 'returnof';
 
-export const Styles = (theme: Theme) => ({
+export const Styles = (_theme: Theme) => ({
   link: {
     color: 'inherit',
     textDecoration: 'inherit',

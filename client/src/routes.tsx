@@ -24,7 +24,7 @@ export interface RouteParams {
   id?: string;
 }
 
-function getHomePage(apis: Apis, common: CommonProps) {
+function getHomePage(_apis: Apis, common: CommonProps) {
   return (
     <HomePage {...common} />
   );

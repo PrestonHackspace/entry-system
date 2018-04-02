@@ -24,13 +24,13 @@ interface Props {
 export const ButtonDialog = withStyles(Styles)(
   ({ classes, content, ...other }: Props & WithStyles<ClassNames>) => {
 
-    const onRequestClose = (e: React.SyntheticEvent<{}>) => {
+    const onRequestClose = (_e: React.SyntheticEvent<{}>) => {
       if (!content) return console.warn('Attempt to close null alert');
 
       content.onRequestClose();
     };
 
-    const onClick = async (e: React.SyntheticEvent<{}>, button: ButtonDialogButton) => {
+    const onClick = async (_e: React.SyntheticEvent<{}>, button: ButtonDialogButton) => {
       if (!content) return console.warn('Attempt to action a null alert');
 
       content.onButtonClick(button);

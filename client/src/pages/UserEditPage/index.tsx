@@ -2,7 +2,7 @@ import * as React from 'react';
 import { isEqual } from 'lodash';
 import { ButtonInfo, CommonProps, FormRequest, isLoadRequest, isNewRequest } from '../../types';
 import { UserApi } from '../../common/api';
-import { PartialUser, UserDummy, isRole, RoleEnum, UserValidator } from '../../common/model/user';
+import { PartialUser, isRole, RoleEnum, UserValidator } from '../../common/model/user';
 import { isHumanError, isValid, validate, ValidationPair } from '../../common/lib';
 import { withState, PropsWithState } from '../../with-state';
 import { AdminLayout } from '../../components/AdminLayout';

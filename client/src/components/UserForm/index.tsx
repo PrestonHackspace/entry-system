@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withStyles, Select, MenuItem, Typography, WithStyles } from 'material-ui';
-import { PartialUser, Roles, Role, UserValidator } from '../../common/model/user';
+import { PartialUser, Roles, Role } from '../../common/model/user';
 import { Pane } from '../Pane';
 import { mutate, ValidationPair, getMessages } from '../../common/lib';
 import { TextField } from '../TextField';
