@@ -20,7 +20,7 @@ export = {
 
   staging: {
     client: 'pg',
-    connection: 'postgres://es:BLAH@es.BLAH.eu-west-2.rds.amazonaws.com:5432/entry_system_staging',
+    connection: 'postgres://postgres:preston@127.0.0.1:5432/entry_system_staging',
     searchPath: 'knex,public',
     migrations: {
       tableName: 'knex_migrations',
@@ -29,7 +29,7 @@ export = {
 
   production: {
     client: 'pg',
-    connection: 'postgres://es:BLAH@es.BLAH.eu-west-2.rds.amazonaws.com:5432/entry_system_production',
+    connection: 'postgres://postgres:preston@127.0.0.1:5432/entry_system_production',
     searchPath: 'knex,public',
     migrations: {
       tableName: 'knex_migrations',
