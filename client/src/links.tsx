@@ -1,7 +1,7 @@
 import * as React from 'react';
 import AccountCircleIcon from 'material-ui-icons/AccountCircle';
 import HomeIcon from 'material-ui-icons/Home';
-// import SettingsIcon from 'material-ui-icons/Settings';
+import SettingsIcon from 'material-ui-icons/Settings';
 // import LinearScaleIcon from 'material-ui-icons/LinearScale';
 // import EventNoteIcon from 'material-ui-icons/EventNote';
 import StoreIcon from 'material-ui-icons/Store';
@@ -23,6 +23,11 @@ export const Links: ReadonlyArray<Readonly<LinkDefinition>> = [
     path: '/',
     icon: <HomeIcon />,
     roles: ['Anon', 'Admin'],
+  }, {
+    title: 'Config',
+    path: '/config',
+    icon: <SettingsIcon />,
+    roles: ['Admin'],
   }, {
     title: 'Entry',
     path: '/entry',

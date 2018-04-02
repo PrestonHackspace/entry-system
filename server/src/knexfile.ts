@@ -4,7 +4,7 @@ const { username } = os.userInfo();
 
 // Slightly hacky, the default username for PostgreSQL on Windows is 'postgres'.
 // On macOS (HomeBrew) it runs under the current user. Linux may be different.
-const devUserName = process.platform === 'darwin' ? username : 'postgres';
+const devUserName = process.platform === 'darwin' ? username : 'postgres:preston';
 
 // Key for this object is NODE_ENV and defaults to 'development'.
 export = {

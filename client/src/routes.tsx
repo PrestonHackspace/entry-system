@@ -10,6 +10,7 @@ import { UserListPage } from './pages/UserListPage';
 import { MemberListPage } from './pages/MemberListPage';
 import { MemberEditPage } from './pages/MemberEditPage';
 import { EntryPage } from './pages/EntryPage';
+import { ConfigEdit } from './pages/ConfigEdit';
 
 const UUIDRegEx = '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}';
 
@@ -50,6 +51,18 @@ function getLoginPage(apis: Apis, common: CommonProps) {
       login={apis.userApi.login}
       sendResetPasswordEmail={apis.userApi.sendResetPasswordEmail}
       onLogin={setSession} />
+  );
+}
+
+function getConfigEditPage(apis: Apis, common: CommonProps) {
+  const { setSession } = common.app;
+
+  return (
+    <ConfigEdit
+      {...common}
+      getConfigValues={apis.configApi.getValues}
+      setConfigValue={apis.configApi.setValue}
+    />
   );
 }
 
@@ -100,6 +113,13 @@ export function getRouteDefinitions(apis: Apis, common: CommonProps) {
       exact: true,
       element: getLoginPage(apis, common),
       roles: ['Anon'],
+    },
+
+    {
+      path: '/config',
+      exact: true,
+      element: getConfigEditPage(apis, common),
+      roles: ['Admin'],
     },
 
     {
