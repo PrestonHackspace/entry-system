@@ -1,11 +1,11 @@
 import { MemberApi } from '../common/api';
 import { NewMemberRepository, InsertMemberRecord, UpdateMemberRecord } from './../model/repositories/member';
-import { Api, pick, strip, Awaitable, DateTimeUtcString } from '../common/lib';
+import { Api, strip } from '../common/lib';
 import { EntrySystemApiContext } from './common';
-import { Member, MemberDetailed } from '../common/model/member';
-import { MemberRow } from '../model/tables';
+import { MemberDetailed } from '../common/model/member';
 import { RoleEnum, RoleGroups } from '../common/model/user';
 import { NewMemberHelper } from './helpers/member_helper';
+import { DateTimeUtcString } from '../common/lib/date';
 
 export function NewMemberApi({ trx, authenticatedUser, helper }: EntrySystemApiContext) {
   const memberRepository = NewMemberRepository(trx, authenticatedUser.id);

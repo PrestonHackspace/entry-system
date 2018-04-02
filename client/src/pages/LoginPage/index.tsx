@@ -88,6 +88,11 @@ export const LoginPage = withStyles(Styles)(withState<Props & WithStyles<ClassNa
           email: 'es-admin@example.com',
           password: 'password',
         },
+        {
+          name: 'Viewer',
+          email: 'viewer1@example.com',
+          password: 'password',
+        },
       ];
 
       return demoLoginList.map((l) => (

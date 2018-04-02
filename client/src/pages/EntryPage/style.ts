@@ -1,6 +1,8 @@
 import { Theme, StyleRulesCallback } from 'material-ui';
 import { StyleRules } from 'material-ui/styles';
 
+export const RowCount = 20;
+
 export const Styles: Style = (theme: Theme) => ({
   page: {
     background: '#77f',
@@ -16,7 +18,7 @@ export const Styles: Style = (theme: Theme) => ({
     display: 'grid',
     gridTemplateColumns: '1fr',
     // gridTemplateRows: 'repeat(auto-fit, minmax(5%, 1fr))',
-    gridTemplateRows: 'repeat(10, 1fr)',
+    gridTemplateRows: `repeat(${RowCount}, 1fr)`,
     gridGap: '1vh',
   },
 
@@ -24,7 +26,7 @@ export const Styles: Style = (theme: Theme) => ({
     display: 'grid',
     gridTemplateColumns: `3fr 1fr 1fr`,
     gridGap: '1vh',
-    fontSize: '5vh',
+    fontSize: `${(50 / RowCount) | 0}vh`,
   },
 
   cell: {

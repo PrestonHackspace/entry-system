@@ -5,7 +5,7 @@ Description=Entry System Service
 Restart=on-failure
 RestartSec=10
 WorkingDirectory=/opt/entry-system/server
-User=entry-system
+User=hackspace
 SyslogIdentifier=entry-system
 Environment=NODE_ENV=%i
 ExecStart=/usr/bin/npm start

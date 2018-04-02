@@ -1,10 +1,11 @@
 import Knex = require('knex');
 import uuid = require('uuid');
 import { Paging } from '../../common/api';
-import { UUID, toDateTimeUtcString, freezeResults, freezeResult, pick, strip, DateTimeUtcString, jsonParse } from '../../common/lib';
+import { UUID, freezeResults, freezeResult, pick, strip, jsonParse } from '../../common/lib';
 import { Role, UserFlags, AnonId } from '../../common/model/user';
 import { UserRow } from '../tables';
 import { TableColumns, Tables } from '../keys';
+import { toDateTimeUtcString, now, DateTimeUtcString } from '../../common/lib/date';
 
 const Table = Tables.user;
 
@@ -90,7 +91,7 @@ export function NewUserRepository(knex: Knex, operatingUserId: UUID) {
     },
 
     async insert(toInsert: InsertUserRecord) {
-      const time = toDateTimeUtcString(new Date());
+      const time = toDateTimeUtcString(now());
 
       const record: UserRow = {
         id: uuid.v1(),
@@ -124,7 +125,7 @@ export function NewUserRepository(knex: Knex, operatingUserId: UUID) {
 
       let record: Partial<UserRow> = {
         ...pick(toUpdate, 'role', 'name', 'email', 'password'),
-        updated_at: toDateTimeUtcString(new Date()),
+        updated_at: toDateTimeUtcString(now()),
         updated_by: operatingUserId,
       };
 

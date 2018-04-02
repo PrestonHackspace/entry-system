@@ -1,9 +1,10 @@
 import Knex = require('knex');
 import uuid = require('uuid');
 import { Paging } from '../../common/api';
-import { UUID, toDateTimeUtcString, deepFreeze } from '../../common/lib';
+import { UUID, deepFreeze } from '../../common/lib';
 import { EventLogRow } from '../tables';
 import { TableColumns, Tables } from '../keys';
+import { toDateTimeUtcString, now } from '../../common/lib/date';
 
 const Table = Tables.event_log;
 const { event_log } = TableColumns;
@@ -46,7 +47,7 @@ export function NewEventLogRepository(knex: Knex, operatingUserId: UUID) {
     },
 
     async insert(toInsert: InsertEventLogRecord) {
-      const time = toDateTimeUtcString(new Date());
+      const time = toDateTimeUtcString(now());
 
       const record: EventLogRow = {
         id: uuid.v1(),
@@ -64,7 +65,7 @@ export function NewEventLogRepository(knex: Knex, operatingUserId: UUID) {
     },
 
     async setStatus(id: UUID, status: 'Pending' | 'Sent' | 'Failed') {
-      const time = toDateTimeUtcString(new Date());
+      const time = toDateTimeUtcString(now());
 
       const record: Partial<EventLogRow> = {
         status,

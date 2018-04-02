@@ -2,7 +2,7 @@ import * as React from 'react';
 import { WithStyles, withStyles } from 'material-ui';
 import * as classNames from 'classnames';
 import { CommonProps } from '../../types';
-import { Styles, ClassNames } from './style';
+import { Styles, ClassNames, RowCount } from './style';
 import { formatLocaleTime } from '../../common/lib/date';
 import { EntryLogApi } from '../../common/api';
 import { EntryList, Entry, SignInOutResponse } from '../../common/model/entry_log';
@@ -81,7 +81,7 @@ export const EntryPage = withStyles(Styles)(
 
     updateEntryView(entryList: EntryList) {
       this.setState({
-        entryList: { entries: entryList.entries.slice(0, 10) },
+        entryList: { entries: entryList.entries.slice(0, RowCount) },
       });
     }
 
@@ -104,7 +104,7 @@ export const EntryPage = withStyles(Styles)(
         const { code, name } = this.state.nameDialog;
 
         // Empty string or begins with 0 is considered a cancel
-        if (code.length === 0 || code.charCodeAt(0) === 48) {
+        if (name.length === 0 || name.charCodeAt(0) === 48) {
           return this.handleNameCancel();
         }
 

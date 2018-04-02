@@ -1,8 +1,9 @@
 import Knex = require('knex');
 import uuid = require('uuid');
-import { UUID, toDateTimeUtcString, mutate } from '../../common/lib';
+import { UUID, mutate } from '../../common/lib';
 import { ConfigValueRow } from '../tables';
 import { ConfigKey, Config, ConfigDummy } from '../../common/model/config';
+import { toDateTimeUtcString, now } from '../../common/lib/date';
 
 export function NewConfigValueRepository(knex: Knex, operatingUserId: UUID) {
   return {
@@ -37,7 +38,7 @@ export function NewConfigValueRepository(knex: Knex, operatingUserId: UUID) {
     },
 
     async setValue<TKey extends ConfigKey, TValue extends Config[TKey]>(key: TKey, value: TValue) {
-      const time = toDateTimeUtcString(new Date());
+      const time = toDateTimeUtcString(now());
 
       const [countResult] = await knex('config_value')
         .where({ key })

@@ -1,9 +1,10 @@
-import { UUID, DateTimeUtcString, JSONString, JSONStringTyped } from '../common/lib';
+import { UUID, JSONString, JSONStringTyped } from '../common/lib';
 import { MemberStatus } from '../common/model/member';
 import { EntryType } from '../common/model/entry_log';
 import { Role, UserFlags } from '../common/model/user';
 import { ConfigKey } from '../common/model/config';
 import { EventLogStatus } from '../common/model/event_log';
+import { DateTimeUtcString } from '../common/lib/date';
 
 export interface UserRow {
   readonly id: UUID;

@@ -15,9 +15,11 @@ export function HomePage(props: HomePageProps) {
     if (app.role === 'Anon') {
       return (
         <>
-          <p>Welcome to Entry System. Please <Link to='/login'>login</Link>.</p>
+          <p>Welcome to Entry System.</p>
 
-          <p><Link to='/test/123'>Test</Link></p>
+          <p><Link to='/login'>Login</Link></p>
+
+          <p><Link to='/entry'>Go to Entry System</Link></p>
         </>
       );
     }
@@ -36,12 +38,6 @@ export function HomePage(props: HomePageProps) {
 
         {getHomePageContent()}
       </Pane>
-
-      <GridLayout minWidth={500} gridGap={16}>
-        <Paper>A</Paper>
-        <Paper>B</Paper>
-        <Paper>C</Paper>
-      </GridLayout>
     </AdminLayout>
   );
 }
