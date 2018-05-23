@@ -6,7 +6,6 @@
   "devDependencies": {
     "browserify": "^16.1.1",
     "comment-json": "^1.1.3",
-    "fuse-box": "3.2.0-next.12",
     "npm-parallel": "^2.0.1",
     "ts-node": "^5.0.0",
     "tslint": "^5.9.1",
@@ -42,6 +41,6 @@
     "build": "tsc && browserify build/index.js -o assets/build/index.js",
     "watch": "parallel tsc-watch watchify",
     "tsc-watch": "tsc --watch",
-    "watchify": "sleep 5 && watchify build/index.js -o assets/build/index.js"
+    "watchify": "sleep 10 && watchify build/index.js -o assets/build/index.js"
   }
 }

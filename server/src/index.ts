@@ -21,9 +21,11 @@ import seedAdmin from './routes/seed-admin';
 import { NewApiHelper } from './lib/api-helper';
 import { NewEntryLogApi } from './api/entry_log';
 
+type Environments = 'development' | 'staging' | 'production';
+
 async function init() {
   try {
-    const env = (process.env.NODE_ENV as 'development' | 'staging' | 'production' | undefined) || 'development';
+    const env = (process.env.NODE_ENV as Environments | undefined) || 'development';
 
     const knex: Knex = Knex(knexfile[env]);
 
