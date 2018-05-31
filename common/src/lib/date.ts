@@ -68,7 +68,9 @@ export function fromMoment(m: Moment) {
 }
 
 export function toMoment(dateTime: DateTime) {
-  return moment.utc({ ...dateTime.date, ...dateTime.time });
+  const { date: { month } } = dateTime;
+
+  return moment.utc({ ...dateTime.date, month: (month - 1), ...dateTime.time });
 }
 
 export function formatLocaleDateTime(dateTime: DateTime) {

@@ -1,12 +1,13 @@
 import Knex = require('knex');
 import bcrypt = require('bcrypt');
-import { UUID, pick, strip, templateString, formatDate } from '../../common/lib';
+import { UUID, pick, strip, templateString } from '../../common/lib';
 import { NewUserRepository, InsertUserRecord, UserRecord } from '../../model/repositories/user';
 import { getStatusEmailHtml } from '../../email/index';
 import { NewEventLogHelper } from './event_log_helper';
 import { Role, UserFlags } from '../../common/model/user';
 import { AppConfig } from '../../config';
 import { NewConfigHelper } from './config_helper';
+import { formatDate } from '../../common/lib/date';
 
 const SaltRounds = 10;
 
